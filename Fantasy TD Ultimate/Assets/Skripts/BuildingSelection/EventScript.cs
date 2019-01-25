@@ -1,51 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class EventScript : MonoBehaviour {
 
-    // 1
-    private SteamVR_TrackedObject trackedObj;
-    // 2
-    private SteamVR_Controller.Device Controller
-    {
-        get { return SteamVR_Controller.Input((int)trackedObj.index); }
-    }
+    public SteamVR_TrackedObject mTrackedObjekt = null;
+    public SteamVR_Controller.Device mDevice;
+    public BuildingSelectionScript BuildingSkript;
 
     void Awake()
     {
-        trackedObj = GetComponent<SteamVR_TrackedObject>();
+        mTrackedObjekt = GetComponent<SteamVR_TrackedObject>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        mDevice = SteamVR_Controller.Input((int)mTrackedObjekt.index);
         // 1
-        if (Controller.GetAxis() != Vector2.zero)
+        if (mDevice.GetAxis() != Vector2.zero)
         {
-            Debug.Log(gameObject.name + Controller.GetAxis());
+            Debug.Log(gameObject.name + mDevice.GetAxis());
         }
 
         // 2
-        if (Controller.GetHairTriggerDown())
+        if (mDevice.GetHairTriggerDown())
         {
             Debug.Log(gameObject.name + " Trigger Press");
+            BuildingSkript.Trigger();
         }
 
         // 3
-        if (Controller.GetHairTriggerUp())
+        if (mDevice.GetHairTriggerUp())
         {
             Debug.Log(gameObject.name + " Trigger Release");
+            BuildingSkript.TriggerExit();
         }
 
         // 4
-        if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
+        if (mDevice.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
         {
             Debug.Log(gameObject.name + " Grip Press");
         }
 
         // 5
-        if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
+        if (mDevice.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
         {
             Debug.Log(gameObject.name + " Grip Release");
         }
