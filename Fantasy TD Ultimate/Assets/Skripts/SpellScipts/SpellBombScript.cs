@@ -18,30 +18,16 @@ public class SpellBombScript : MonoBehaviour {
             collider.gameObject.GetComponent<Attacker>().TakeDamage(damage);
             Destroy(gameObject);
             Effects[0].SetActive(true);
-            Effects[1].SetActive(true);
-            Effects[2].SetActive(true);
-            Effects[3].SetActive(true);
-            Effects[4].SetActive(true);
-            Effects[5].SetActive(true);
-            Effects[6].SetActive(true);
-            Effects[7].SetActive(true);
             explode = true;
             Pos = new Vector3(this.GetComponent<Transform>().position.x, this.GetComponent<Transform>().position.y +1, this.GetComponent<Transform>().position.z);
             //EffectInstance.GetComponent<Transform>().position = this.GetComponent<Transform>().position;
             //StartCoroutine(DeleteEffect(EffectInstance));
-
+            
         }
         if (collider.gameObject.CompareTag("Ground"))
         {
             Debug.Log("GroundHit");
             Effects[0].SetActive(true);
-            Effects[1].SetActive(true);
-            Effects[2].SetActive(true);
-            Effects[3].SetActive(true);
-            Effects[4].SetActive(true);
-            Effects[5].SetActive(true);
-            Effects[6].SetActive(true);
-            Effects[7].SetActive(true);
             explode = true;
             Pos = new Vector3(this.GetComponent<Transform>().position.x, this.GetComponent<Transform>().position.y + 1, this.GetComponent<Transform>().position.z);
             StartCoroutine(DeleteEffect());
