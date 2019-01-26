@@ -10,6 +10,7 @@ public class Attacker : MonoBehaviour {
     public int attackDamage = 10;
 
     public float attackCooldown = 2f;
+    public float attackOffset;
     private float timeSinceLastAttack;
 
     public float moveSpeed;
@@ -51,12 +52,14 @@ public class Attacker : MonoBehaviour {
         {
             transform.Translate(new Vector3(0f, 0f, moveSpeed));
             animator.SetTrigger("WalkTrigger");
+            timeSinceLastAttack = attackCooldown - attackOffset;
         }
         else
         {
             print(direction.magnitude);
             animator.SetTrigger("AttackTrigger");
             Attack();
+            timeSinceLastAttack += Time.deltaTime;
         }
     }
 
@@ -68,7 +71,6 @@ public class Attacker : MonoBehaviour {
             target.GetComponent<Defender>().TakeDamage(attackDamage);
             timeSinceLastAttack = 0f;
         }
-        timeSinceLastAttack += Time.deltaTime;
     }
 
     private void CheckNextAttacker()

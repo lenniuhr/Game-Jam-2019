@@ -820,8 +820,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1499664131317694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.42, y: -17, z: 150}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 71.23, y: -16.89, z: 113.87}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4578210183436486}
   - {fileID: 4033829387128302}
@@ -1310,8 +1310,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   attackDamage: 5
-  attackCooldown: 1
-  moveSpeed: 0.2
+  attackCooldown: 2.7666
+  attackOffset: 1.5
+  moveSpeed: 0.05
   attackDistance: 4
 --- !u!135 &135843425032917686
 SphereCollider:
