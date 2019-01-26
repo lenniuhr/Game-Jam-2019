@@ -203,8 +203,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267019348421222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.9862995, y: -16.89, z: 111.863976}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -80.3, y: -16.390001, z: 56.04232}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4021133333895092}
   - {fileID: 4467367666620210}
@@ -589,7 +589,7 @@ MonoBehaviour:
   damage: 50
   missile: {fileID: 1298828016050568, guid: 82b7b7b834b1a4223919784accd44d26, type: 2}
   shotPerSecond: 0.5
-  height: 4.5
+  height: 13.5
 --- !u!114 &114876599070365386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -611,7 +611,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136632543245523684
 CapsuleCollider:

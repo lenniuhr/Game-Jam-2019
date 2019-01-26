@@ -71,8 +71,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1642445123005604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.873554, y: -16.89, z: 108.44859}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 40.285023, y: -16.83, z: 65.86788}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4672903871799362}
   - {fileID: 4567365789138432}
@@ -195,11 +195,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554124471413e41bf9e32039a0b7b5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
+  maxHealth: 400
   damage: 5
   missile: {fileID: 1926293510535260, guid: 4b8ed6536dd8f49cf9f85b3961d438e4, type: 2}
   shotPerSecond: 4
-  height: 4
+  height: 12
 --- !u!114 &114860563190141456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,7 +221,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 40
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136151780748374846
 CapsuleCollider:

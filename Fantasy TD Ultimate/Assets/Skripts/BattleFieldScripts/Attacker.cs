@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour {
 
-    private int currentHealth;
+
     public int maxHealth = 100;
 
     public int attackDamage = 10;
@@ -25,7 +25,6 @@ public class Attacker : MonoBehaviour {
     void Start () {
         door = GameObject.Find("Door");
         target = door;
-        currentHealth = maxHealth;
         animator = GetComponentInChildren<Animator>();
 	}
 	
@@ -112,11 +111,11 @@ public class Attacker : MonoBehaviour {
 
     public void TakeDamage(int dmg)
     {
-        currentHealth -= dmg;
+        maxHealth -= dmg;
 
-        if (currentHealth <= 0)
+        if (maxHealth <= 0)
         {
-            currentHealth = 0;
+            maxHealth = 0;
             animator.SetTrigger("DieTrigger");
             Destroy(GetComponent<CapsuleCollider>());
             Destroy(gameObject, 2);
@@ -125,6 +124,6 @@ public class Attacker : MonoBehaviour {
 
     public bool HasDied()
     {
-        return currentHealth <= 0;
+        return maxHealth <= 0;
     }
 }
