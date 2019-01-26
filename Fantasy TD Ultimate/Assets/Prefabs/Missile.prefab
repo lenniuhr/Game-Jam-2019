@@ -109,10 +109,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1242629093354076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0445ee54efee240e5876db77d21c57ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d2c70e2a1a324a15bba00ae5ac4e3c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   missileSpeed: 1
+  damage: 10
 --- !u!135 &135651961718488602
 SphereCollider:
   m_ObjectHideFlags: 1
