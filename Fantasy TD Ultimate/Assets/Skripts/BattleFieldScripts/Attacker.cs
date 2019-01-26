@@ -55,6 +55,7 @@ public class Attacker : MonoBehaviour {
         }
         else
         {
+            print(direction.magnitude);
             animator.SetTrigger("AttackTrigger");
             Attack();
         }
@@ -64,15 +65,21 @@ public class Attacker : MonoBehaviour {
     {
         if(timeSinceLastAttack > attackCooldown)
         {
-            print(target);
+            print("HIT");
             target.GetComponent<Defender>().TakeDamage(attackDamage);
+            timeSinceLastAttack = 0f;
         }
         timeSinceLastAttack += Time.deltaTime;
     }
 
     private void CheckNextAttacker()
     {
-        if (target != door && target.GetComponent<Defender>().HasDied()) // target has died
+        if(door == null)
+        {
+            return;
+        }
+
+        if(target == null)
         {
             target = door;
         }
@@ -112,7 +119,7 @@ public class Attacker : MonoBehaviour {
             currentHealth = 0;
             animator.SetTrigger("DieTrigger");
             Destroy(GetComponent<CapsuleCollider>());
-            Destroy(gameObject, 4);
+            Destroy(gameObject, 2);
         }
     }
 

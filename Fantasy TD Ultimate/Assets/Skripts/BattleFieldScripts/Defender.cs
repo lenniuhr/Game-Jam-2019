@@ -6,7 +6,6 @@ using UnityEngine;
 public class Defender : MonoBehaviour {
 
     public int maxHealth = 100;
-    private int currentHealth;
     public int damage = 50;
 
     private List<GameObject> attackersInRange;
@@ -26,7 +25,6 @@ public class Defender : MonoBehaviour {
         {
             projectiles = Instantiate(new GameObject("Projectiles"));
         }
-        currentHealth = maxHealth;
 	}
 
     // Update is called once per frame
@@ -86,17 +84,17 @@ public class Defender : MonoBehaviour {
 
     internal void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        maxHealth -= damage;
 
-        if (currentHealth <= 0)
+        if (maxHealth <= 0)
         {
-            currentHealth = 0;
+            maxHealth = 0;
             Destroy(gameObject);
         }
     }
 
     public bool HasDied()
     {
-        return currentHealth <= 0;
+        return maxHealth <= 0;
     }
 }

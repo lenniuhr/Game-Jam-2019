@@ -7,6 +7,8 @@ public class SpellCasting : MonoBehaviour {
     public GameObject[] Spell;
     public GameObject Ray;
     public int RapidFire = 10;
+    public bool SpellReady = true;
+    public PlayerSkript ManaSkript;
     private GameObject SpellInstance;
     private int SpellIndex = 0;
     private GameObject SelectedSpell;
@@ -27,7 +29,7 @@ public class SpellCasting : MonoBehaviour {
     // Wenn auf ein Spell gezeigt wird gebe Feedback und speicher das entsprechende Gebäude
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.tag.Contains("Spell") && SelectedSpell == null) && (trigger == false) )
+        if ((other.gameObject.tag.Contains("Spell")) && (SelectedSpell == null) && (trigger == false) && (SpellReady) )
         {
             if (other.gameObject.tag.Contains("1"))
             {
@@ -61,6 +63,8 @@ public class SpellCasting : MonoBehaviour {
         Debug.Log("MyTrigger");
         if (SelectedSpell)
         {
+            SpellReady = false;
+            ManaSkript.SpellSelected(SpellIndex);
             Debug.Log("BuildingSelected");
             trigger = true;
             if (SpellIndex == 2){
