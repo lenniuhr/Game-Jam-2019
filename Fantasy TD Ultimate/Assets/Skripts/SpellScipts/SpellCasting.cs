@@ -106,9 +106,9 @@ public class SpellCasting : MonoBehaviour {
                 FireSpell.GetComponent<SpellFire>().Fire(Aim);
                 LocalCounter--;
                 HoldingSpell.SetActive(false);
-                yield return new WaitForSeconds(.2f);
+                yield return new WaitForSeconds(.1f);
                 HoldingSpell.SetActive(true);
-                yield return new WaitForSeconds(.2f);
+                yield return new WaitForSeconds(.1f);
             }
 
         }else if (SpellIndex == 2)

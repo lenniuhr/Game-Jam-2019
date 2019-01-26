@@ -55,6 +55,6 @@ MonoBehaviour:
   - {fileID: 1200552388667756, guid: 84cbd1d27cfb74fc0addd02c88c5bc72, type: 2}
   amounts: 01000000
   spawnPoints:
-  - {x: -50, y: -16, z: 200}
-  - {x: 0, y: -16, z: 200}
-  - {x: 50, y: -16, z: 200}
+  - {x: -160, y: -16.7, z: 160}
+  - {x: 0, y: -16.7, z: 160}
+  - {x: 160, y: -16.7, z: 160}
