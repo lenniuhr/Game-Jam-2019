@@ -7,7 +7,7 @@ public class Missile : MonoBehaviour {
     public float missileSpeed = 1f;
     public int damage = 10;
 
-    private GameObject myTarget;
+    private GameObject target;
 
 	// Use this for initialization
 	void Start () {
@@ -17,9 +17,9 @@ public class Missile : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if (myTarget != null)
+        if (target != null)
         {
-            Vector3 direction = transform.position - myTarget.transform.position;
+            Vector3 direction = transform.position - target.transform.position;
             Vector3 directionNorm = direction.normalized;
             if(direction.magnitude < 0)
             {
@@ -34,7 +34,7 @@ public class Missile : MonoBehaviour {
 
     public void SetTargetAndDamage(GameObject target, int damage)
     {
-        this.myTarget = target;
+        this.target = target;
         this.damage = damage;
     }
 
