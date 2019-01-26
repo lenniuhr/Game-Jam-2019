@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Defender
   - Attacker
+  - Build
+  - Build1
+  - Build2
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Ground
   - 
   - 
   - 
