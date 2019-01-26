@@ -54,7 +54,6 @@ public class SpellFire : MonoBehaviour {
 
     public IEnumerator DeleteEffect(GameObject Effect)
     {
-        Debug.Log("Specal Effect");
         yield return new WaitForSeconds(2f);
         Destroy(Effect);
     }
