@@ -56,7 +56,7 @@ public class SpellFire : MonoBehaviour {
     {
         Debug.Log("Specal Effect");
         yield return new WaitForSeconds(2f);
-       // Destroy(Effect);
+        Destroy(Effect);
     }
 
 }
