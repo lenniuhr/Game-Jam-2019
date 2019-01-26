@@ -32,9 +32,10 @@ public class Missile : MonoBehaviour {
         }
     }
 
-    public void SetTarget(GameObject target)
+    public void SetTargetAndDamage(GameObject target, int damage)
     {
         this.myTarget = target;
+        this.damage = damage;
     }
 
     public void OnTriggerEnter(Collider collider)
