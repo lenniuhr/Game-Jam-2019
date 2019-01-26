@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114120284511461224}
   m_Layer: 0
   m_Name: BogenTurm
-  m_TagString: Untagged
+  m_TagString: Defender
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1642445123005604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.28, y: -16.89, z: 112.830574}
+  m_LocalPosition: {x: -14.873554, y: -16.89, z: 108.44859}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4672903871799362}
