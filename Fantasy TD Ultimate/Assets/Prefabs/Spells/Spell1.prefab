@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 23701398155485792}
   - component: {fileID: 135522936034258964}
   - component: {fileID: 114503310969997132}
+  - component: {fileID: 54680401098772702}
   m_Layer: 0
   m_Name: Spell1
   m_TagString: Spell1
@@ -178,6 +179,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1738963103195246}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54680401098772702
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1738963103195246}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114503310969997132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,6 +206,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  damage: 100
+  Effekt:
+  - {fileID: 1872398490568822, guid: 7619715228417dc42a5102fe47d62337, type: 2}
+  - {fileID: 1979348020082302, guid: 0057a7af2c3da0645b6c6a277bbdf4b9, type: 2}
 --- !u!135 &135522936034258964
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -197,7 +217,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1738963103195246}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

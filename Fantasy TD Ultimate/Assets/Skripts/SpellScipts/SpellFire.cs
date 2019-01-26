@@ -9,6 +9,7 @@ public class SpellFire : MonoBehaviour {
     private Vector3 MyTarget;
     private bool Firing = false;
     private Vector3 OldPosition = new Vector3 (0, 0, 0);
+    public GameObject[] Effekt;
 
     public void Fire(Vector3 Target)
     {
@@ -31,12 +32,31 @@ public class SpellFire : MonoBehaviour {
 
     public void OnTriggerEnter(Collider collider)
     {
+
         if (collider.gameObject.CompareTag("Attacker"))
         {
             Debug.Log("EnemyHit");
             collider.gameObject.GetComponent<Attacker>().TakeDamage(damage);
             Destroy(gameObject);
+            GameObject EffectInstance =  Instantiate(Effekt[0]);
+            EffectInstance.GetComponent<Transform>().position = this.GetComponent<Transform>().position;
+            //StartCoroutine(DeleteEffect(EffectInstance));
+
         }
+        if (collider.gameObject.CompareTag("Ground"))
+        {
+            Debug.Log("GroundHit");
+            GameObject EffectInstance = Instantiate(Effekt[0]);
+            EffectInstance.GetComponent<Transform>().position = this.GetComponent<Transform>().position;
+            //StartCoroutine(DeleteEffect(EffectInstance));
+        }
+    }
+
+    public IEnumerator DeleteEffect(GameObject Effect)
+    {
+
+        yield return new WaitForSeconds(2f);
+       // Destroy(Effect);
     }
 
 }
