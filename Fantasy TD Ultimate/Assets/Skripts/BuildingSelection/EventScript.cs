@@ -8,6 +8,7 @@ public class EventScript : MonoBehaviour {
     public SteamVR_TrackedObject mTrackedObjekt = null;
     public SteamVR_Controller.Device mDevice;
     public BuildingSelectionScript BuildingSkript;
+    public SpellCasting SpellCastingScript;
 
     void Awake()
     {
@@ -28,14 +29,18 @@ public class EventScript : MonoBehaviour {
         if (mDevice.GetHairTriggerDown())
         {
             Debug.Log(gameObject.name + " Trigger Press");
-            BuildingSkript.Trigger();
+                BuildingSkript.Trigger();
+                SpellCastingScript.Trigger();
         }
 
         // 3
         if (mDevice.GetHairTriggerUp())
         {
             Debug.Log(gameObject.name + " Trigger Release");
-            BuildingSkript.TriggerExit();
+                BuildingSkript.TriggerExit();        
+                SpellCastingScript.TriggerExit();
+
+
         }
 
         // 4

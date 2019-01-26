@@ -7,7 +7,7 @@ public class BuildingSelectionScript : MonoBehaviour {
     public GameObject[] BuildEffect;
     public GameObject[] BuildPlacement;
     public GameObject Ray;
-    private GameObject SelectedBuilding;
+    private GameObject SelectedBuilding = null;
     private GameObject HoldingBuilding;
     private GameObject BuildPlacementInstance;
     private int BuildIndex = 0;
@@ -19,7 +19,7 @@ public class BuildingSelectionScript : MonoBehaviour {
     // Wenn auf ein Gebäude oder Spell gezeigt wird gebe Feedback und speicher das entsprechende Gebäude
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Contains("Build"))
+        if (other.gameObject.tag.Contains("Build") && SelectedBuilding == null)
         {
             if (other.gameObject.tag.Contains("1"))
             {
@@ -29,7 +29,7 @@ public class BuildingSelectionScript : MonoBehaviour {
                 BuildIndex = 1;
             }
             other.GetComponent<BuildGetsCollected>().GotSelected();
-            SelectedBuilding = other.gameObject;
+            SelectedBuilding = other.gameObject; 
         }
     }
 
@@ -39,6 +39,7 @@ public class BuildingSelectionScript : MonoBehaviour {
         {
             other.GetComponent<BuildGetsCollected>().GotDeSelected();
             SelectedBuilding = null;
+            
         }
     }
 

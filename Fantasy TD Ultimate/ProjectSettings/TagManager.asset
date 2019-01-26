@@ -9,6 +9,12 @@ TagManager:
   - Build
   - Build1
   - Build2
+  - Build3
+  - Build4
+  - Spell1
+  - Spell2
+  - Spell3
+  - Spell4
   layers:
   - Default
   - TransparentFX
