@@ -16,6 +16,7 @@ public class Defender : MonoBehaviour {
 
     public GameObject missile;
     public float shotPerSecond = 0.1f;
+    public float height;
 
     // Use this for initialization
     void Start () {
@@ -46,7 +47,7 @@ public class Defender : MonoBehaviour {
     {
         GameObject newMissile = Instantiate(missile, projectiles.transform);
         newMissile.GetComponent<Missile>().SetTargetAndDamage(target, damage);
-        newMissile.transform.Translate(transform.position);
+        newMissile.transform.Translate(transform.position + new Vector3(0f,height,0f));
         timeSinceLastAttack = 0f;
     }
 
