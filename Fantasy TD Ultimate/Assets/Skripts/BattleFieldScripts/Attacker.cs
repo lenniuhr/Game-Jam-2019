@@ -24,7 +24,6 @@ public class Attacker : MonoBehaviour {
     // Use this for initialization
     void Start () {
         door = GameObject.Find("Door");
-        target = door;
         currentHealth = maxHealth;
         animator = GetComponentInChildren<Animator>();
 	}
@@ -39,6 +38,10 @@ public class Attacker : MonoBehaviour {
             if (target != null)
             {
                 MoveInDirection(target.transform);
+            }
+            else
+            {
+                MoveInDirection(door.transform);
             }
         }
     }
@@ -72,12 +75,12 @@ public class Attacker : MonoBehaviour {
 
     private void CheckNextAttacker()
     {
-        if (target != door && target.GetComponent<Defender>().HasDied()) // target has died
+        if (target != null && target.GetComponent<Defender>().HasDied()) // target has died
         {
-            target = door;
+            target = null;
         }
 
-        if (target == door && defendersInRange.Count > 0)
+        if (target == null && defendersInRange.Count > 0)
         {
             target = defendersInRange[0];
             defendersInRange.Remove(target);

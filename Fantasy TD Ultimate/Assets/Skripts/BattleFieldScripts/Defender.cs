@@ -8,7 +8,6 @@ public class Defender : MonoBehaviour {
     public int maxHealth = 100;
     private int currentHealth;
     public int damage = 50;
-    public float height = 1f;
 
     private List<GameObject> attackersInRange;
     private float timeSinceLastAttack = 10f;
@@ -47,7 +46,7 @@ public class Defender : MonoBehaviour {
     {
         GameObject newMissile = Instantiate(missile, projectiles.transform);
         newMissile.GetComponent<Missile>().SetTargetAndDamage(target, damage);
-        newMissile.transform.Translate(transform.position + new Vector3(0, height, 0));
+        newMissile.transform.Translate(transform.position);
         timeSinceLastAttack = 0f;
     }
 
