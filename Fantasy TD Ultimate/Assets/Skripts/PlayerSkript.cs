@@ -18,7 +18,7 @@ public class PlayerSkript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        ManaBar.getComponent<Transform>.scale = new Vector3(Mana / 100f, 1, 1);
+       // ManaBar.GetComponent<Transform>().Scale = new Vector3(Mana / 100f, 1, 1);
         if (Mana < 100)
         {
             UpdateMana();
