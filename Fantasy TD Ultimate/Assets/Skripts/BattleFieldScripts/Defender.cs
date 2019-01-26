@@ -21,6 +21,10 @@ public class Defender : MonoBehaviour {
     void Start () {
         attackersInRange = new List<GameObject>();
         projectiles = GameObject.Find("Projectiles");
+        if(!projectiles)
+        {
+            projectiles = Instantiate(new GameObject("Projectiles"));
+        }
         currentHealth = maxHealth;
 	}
 

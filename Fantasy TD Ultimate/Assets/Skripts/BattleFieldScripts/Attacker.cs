@@ -15,10 +15,6 @@ public class Attacker : MonoBehaviour {
     public float moveSpeed;
     public float attackDistance;
 
-    public bool isWalking = true;
-    public bool isAttacking;
-    private bool IsDying;
-
     private GameObject door;
     private Animator animator;
 
@@ -37,13 +33,16 @@ public class Attacker : MonoBehaviour {
     {
         CheckNextAttacker();
 
-        if (target != null)
+        if(!HasDied())
         {
-            MoveInDirection(target.transform);
-        }
-        else
-        {
-            MoveInDirection(door.transform);
+            if (target != null)
+            {
+                MoveInDirection(target.transform);
+            }
+            else
+            {
+                MoveInDirection(door.transform);
+            }
         }
     }
 
@@ -53,8 +52,8 @@ public class Attacker : MonoBehaviour {
 
         Vector3 direction = transform.position - targetTransform.position;
         if(direction.magnitude > attackDistance)
-        {transform.Translate(new Vector3(0f, 0f, moveSpeed));
-            
+        {
+            transform.Translate(new Vector3(0f, 0f, moveSpeed));
             animator.SetTrigger("WalkTrigger");
         }
         else

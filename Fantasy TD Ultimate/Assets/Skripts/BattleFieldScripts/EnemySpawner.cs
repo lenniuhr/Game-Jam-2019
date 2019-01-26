@@ -15,8 +15,12 @@ public class EnemySpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         attackers = GameObject.Find("Attackers");
+        if(!attackers)
+        {
+            attackers = Instantiate(new GameObject("Attackers"));
+        }
 
-        foreach(Vector3 spawnPoint in spawnPoints)
+        foreach (Vector3 spawnPoint in spawnPoints)
         {
             for(int i = 0; i < enemies.Length; i++)
             {
