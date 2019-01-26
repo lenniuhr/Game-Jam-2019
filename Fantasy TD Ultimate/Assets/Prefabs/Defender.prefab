@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554124471413e41bf9e32039a0b7b5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10000
   missile: {fileID: 1242629093354076, guid: 69758b0fe23ef4391b9f5b4d3456c2fa, type: 2}
   shotPerSecond: 1
 --- !u!114 &114858597775536072
