@@ -38,7 +38,7 @@ public class EventScript : MonoBehaviour {
         {
             Debug.Log(gameObject.name + " Trigger Release");
                 BuildingSkript.TriggerExit();        
-                SpellCastingScript.TriggerExit();
+                StartCoroutine(SpellCastingScript.TriggerExit());
 
 
         }

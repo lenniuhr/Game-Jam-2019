@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: c38c984d148364547b32a4ecef7cb1cf
+guid: 5c8f1b5060fbc43c48fb772c3463f6b7
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: Turm
-    2100002: Burg_Wand
-    2100004: color_14860437
+    2100002: color_14860437
+    2100004: Burg_Wand
     2100006: Burg_Dach
     2300000: //RootNode
     3300000: //RootNode

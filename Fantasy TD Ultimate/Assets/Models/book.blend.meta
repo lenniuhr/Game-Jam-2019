@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: 814a62c8b1add4340afc8253c60926ed
+guid: bf4a5459ccd14914b80cf3328f7ce53e
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Camera
-    100002: Icosphere
-    100004: Lamp
-    100006: //RootNode
-    400000: Camera
-    400002: Icosphere
-    400004: Lamp
-    400006: //RootNode
-    2000000: Camera
-    2100000: Stone
-    2300000: Icosphere
-    3300000: Icosphere
-    4300000: Icosphere
-    10800000: Lamp
+    100000: //RootNode
+    400000: //RootNode
+    2100000: bookcolor
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Grimoire
+    7400000: Default Take
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -69,7 +63,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -94,7 +88,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

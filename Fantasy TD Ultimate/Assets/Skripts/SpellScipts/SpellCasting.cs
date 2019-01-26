@@ -6,6 +6,7 @@ public class SpellCasting : MonoBehaviour {
 
     public GameObject[] Spell;
     public GameObject Ray;
+    public int RapidFire = 10;
     private GameObject SpellInstance;
     private int SpellIndex = 0;
     private GameObject SelectedSpell;
@@ -13,10 +14,11 @@ public class SpellCasting : MonoBehaviour {
     private bool trigger = false;
     private Vector3 Aim;
 
+
     // Wenn auf ein Spell gezeigt wird gebe Feedback und speicher das entsprechende Gebäude
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Contains("Spell") && SelectedSpell == null)
+        if ((other.gameObject.tag.Contains("Spell") && SelectedSpell == null) && (trigger == false) )
         {
             if (other.gameObject.tag.Contains("1"))
             {
@@ -28,7 +30,7 @@ public class SpellCasting : MonoBehaviour {
             }
             other.GetComponent<SpellGetsCollected>().GotSelected();
             SelectedSpell = other.gameObject;
-            Debug.Log("Enter");
+            Debug.Log(SpellIndex);
         }
     }
 
@@ -38,7 +40,6 @@ public class SpellCasting : MonoBehaviour {
         {
             other.GetComponent<SpellGetsCollected>().GotDeSelected();
             SelectedSpell = null;
-            Debug.Log("Exit");
         }
     }
 
@@ -57,22 +58,45 @@ public class SpellCasting : MonoBehaviour {
             HoldingSpell.GetComponent<Transform>().rotation = this.GetComponentInParent<Transform>().rotation;
             HoldingSpell.GetComponent<Transform>().localPosition = new Vector3(0f, 0.3f, 0f);
 
-            //Erstelle das DummyGebäude
-
-
             //Activiere den Raycast
             Ray.SetActive(true);
         }
 
     }
 
-    public void TriggerExit()
+    public IEnumerator TriggerExit()
     {
-        GameObject FireSpell = Instantiate(HoldingSpell);
-        FireSpell.GetComponent<SpellFire>().Fire(Aim);
+        Debug.Log(SpellIndex);
+        if (SpellIndex == 0)
+        {
+            GameObject FireSpell = Instantiate(HoldingSpell);
+            FireSpell.GetComponent<Transform>().localPosition = HoldingSpell.GetComponent<Transform>().position;
+            FireSpell.GetComponent<SpellFire>().Fire(Aim);
+            yield return new WaitForSeconds(.01f); ;
+        }
+        else if (SpellIndex == 1)
+        {
+            int LocalCounter = RapidFire;
+
+            while (LocalCounter > 0)
+            {
+                GameObject FireSpell = Instantiate(HoldingSpell);
+                FireSpell.GetComponent<Transform>().localPosition = HoldingSpell.GetComponent<Transform>().position;
+                FireSpell.GetComponent<SpellFire>().Fire(Aim);
+                LocalCounter--;
+                HoldingSpell.SetActive(false);
+                yield return new WaitForSeconds(.2f);
+                HoldingSpell.SetActive(true);
+                yield return new WaitForSeconds(.2f);
+            }
+
+        }
         Destroy(HoldingSpell);
         Ray.SetActive(false);
+        trigger = false;
     }
+
+
 
     public void CastSpell(Vector3 position, Vector3 direktion)
     {
