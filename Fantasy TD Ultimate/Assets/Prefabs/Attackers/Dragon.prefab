@@ -2621,7 +2621,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146306658288670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.74, y: -14.816866, z: 103.3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4934318656464652}
@@ -2998,7 +2998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3000
   moveSpeed: 20
-  damagePerFrame: 5
+  damagePerFrame: 3
   attackDistance: 15
 --- !u!114 &114545863866288750
 MonoBehaviour:
