@@ -36,7 +36,8 @@ public class Bomberwagen : Attacker {
     {
         if(!isExploded)
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            GameObject deathAnim = Instantiate(explosion, transform.position, Quaternion.identity);
+            deathAnim.transform.Rotate(new Vector3(-90, 0, 0));
             Invoke("DealDamage", 3.5f);
             isExploded = true;
             Destroy(gameObject, 3.6f);
