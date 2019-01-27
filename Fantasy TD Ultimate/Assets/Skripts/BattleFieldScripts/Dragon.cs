@@ -2,45 +2,89 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dragon : Attacker
+public class Dragon : BattleObject
 {
+    public float moveSpeed;
+    public int damagePerFrame;
+    public float attackDistance;
 
     private Animator animator;
+    private ParticleSystem fireStream;
+    private List<GameObject> defendersInHitRange = new List<GameObject>();
+    protected GameObject target;
+    private GameObject door;
+    private List<GameObject> defendersInRange = new List<GameObject>();
 
     // Use this for initialization
     protected void Start()
     {
-        base.Start();
+        door = GameObject.Find("Door");
+        target = door;
         animator = GetComponentInChildren<Animator>();
+        fireStream = GetComponentInChildren<ParticleSystem>(true);
     }
 
-    protected override void MoveInDirection(Transform targetTransform)
+    private void FixedUpdate()
     {
-        print(targetTransform);
-        transform.LookAt(targetTransform.position);
+        CheckNextAttacker();
 
-        Vector3 direction = transform.position - targetTransform.position;
-        if (direction.magnitude > attackDistance)
+        if (!HasDied())
         {
-            transform.Translate(new Vector3(0f, 0f, moveSpeed) * Time.deltaTime);
-            animator.SetTrigger("WalkTrigger");
-            timeSinceLastAttack = attackCooldown - attackOffset;
+            if (target != null)
+            {
+                transform.LookAt(target.transform.position);
+
+                Vector3 direction = transform.position - target.transform.position;
+                if (direction.magnitude > attackDistance)
+                {
+                    transform.Translate(new Vector3(0f, 0f, moveSpeed) * Time.deltaTime);
+                    animator.SetTrigger("WalkTrigger");
+                    fireStream.gameObject.SetActive(false);
+                }
+                else
+                {
+                    Attack();
+                }
+            }
         }
-        else
+    }
+
+    private void CheckNextAttacker()
+    {
+        if (door == null) // game over
         {
-            animator.SetTrigger("AttackTrigger");
-            Attack();
-            timeSinceLastAttack += Time.deltaTime;
+            return;
+        }
+
+        if (target == null || target == door || target.GetComponent<BattleObject>().HasDied())
+        {
+            if (defendersInRange.Count > 0)
+            {
+                target = defendersInRange[0];
+                defendersInRange.Remove(target);
+            }
+            else
+            {
+                target = door;
+            }
         }
     }
 
     private void Attack()
     {
-        if (timeSinceLastAttack > attackCooldown)
+        animator.SetTrigger("AttackTrigger");
+        fireStream.gameObject.SetActive(true);
+        foreach(GameObject o in defendersInHitRange)
         {
-
-
-            timeSinceLastAttack = 0f;
+            if(o != null)
+            {
+                BattleObject battle = o.GetComponent<BattleObject>();
+                battle.TakeDamage(damagePerFrame);
+                if (battle.HasDied())
+                {
+                    defendersInRange.Remove(o);
+                }
+            }
         }
     }
 
@@ -48,12 +92,37 @@ public class Dragon : Attacker
     {
         health = 0;
         animator.SetTrigger("DieTrigger");
+        fireStream.gameObject.SetActive(false);
         Destroy(GetComponent<CapsuleCollider>());
-        Destroy(gameObject, 2);
+        Destroy(gameObject, 6);
+    }
 
-        if (animator != null)
+    public void AddDefenderInHitRange(GameObject gameObject)
+    {
+        defendersInHitRange.Add(gameObject);
+    }
+
+    public void RemoveDefenderInHitRange(GameObject gameObject)
+    {
+        defendersInHitRange.Remove(gameObject);
+    }
+
+    public void AddDefenderInRange(GameObject o)
+    {
+        defendersInRange.Add(o);
+        CheckNextAttacker();
+    }
+
+    public void RemoveDefenderInRange(GameObject o)
+    {
+        if (target == o)
         {
-            animator.SetTrigger("DieTrigger");
+            target = null;
         }
+        else
+        {
+            defendersInRange.Remove(o);
+        }
+        CheckNextAttacker();
     }
 }

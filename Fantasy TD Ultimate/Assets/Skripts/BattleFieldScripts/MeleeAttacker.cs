@@ -14,7 +14,6 @@ public class MeleeAttacker : Attacker {
 
     protected override void MoveInDirection(Transform targetTransform)
     {
-        print(targetTransform);
         transform.LookAt(targetTransform.position);
 
         Vector3 direction = transform.position - targetTransform.position;
