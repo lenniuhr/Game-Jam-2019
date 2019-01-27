@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeleeAttacker : Attacker {
 
     private Animator animator;
+    public AudioSource Audio;
 
     // Use this for initialization
     protected void Start () {
@@ -38,6 +39,7 @@ public class MeleeAttacker : Attacker {
             print("HIT");
             target.GetComponent<BattleObject>().TakeDamage(attackDamage);
             timeSinceLastAttack = 0f;
+            Audio.Play();
         }
     }
 
