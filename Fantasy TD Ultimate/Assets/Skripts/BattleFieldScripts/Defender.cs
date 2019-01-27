@@ -16,7 +16,7 @@ public class Defender : BattleObject {
     public GameObject missile;
     public float shotPerSecond = 0.1f;
     public float height;
-    public AudioSource Audio;
+    public AudioSource[] Audio;
 
     // Use this for initialization
     void Start () {
@@ -55,9 +55,9 @@ public class Defender : BattleObject {
         newMissile.GetComponent<Missile>().SetTargetAndDamage(target, damage);
         newMissile.transform.Translate(transform.position + new Vector3(0f,height,0f));
         timeSinceLastAttack = 0f;
-        if (Audio)
+        if (Audio[0])
         {
-            Audio.Play();
+            Audio[0].Play();
         }
     }
 
@@ -99,6 +99,7 @@ public class Defender : BattleObject {
     {
         health = 0;
         Instantiate(destroyAnimation, transform.position, Quaternion.identity);
+        Audio[1].Play();
         Destroy(gameObject, 5);
     }
 }
