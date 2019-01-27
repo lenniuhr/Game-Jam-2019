@@ -1481,15 +1481,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1499664131317694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc9b718a2ffb442583df16eedea8925, type: 3}
+  m_Script: {fileID: 11500000, guid: d2df0315c6156418d86567ec4108e996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  attackDamage: 5
-  attackCooldown: 2.7666
-  attackOffset: 1.5
-  moveSpeed: 0.15
-  attackDistance: 4
+  attackDamage: 0
+  moveSpeed: 0
+  attackDistance: 0
+  attackOffset: 0
+  attackCooldown: 0
 --- !u!114 &114788054093622402
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Geblase : MonoBehaviour {
-
-
+public class Geblase : BattleObject {
 
     public GameObject destroyAnimation;
-    public int health = 100;
     public int damage = 50;
 
     private List<GameObject> attackersInRange;
@@ -54,6 +51,7 @@ public class Geblase : MonoBehaviour {
 
     private void Shoot()
     {
+        transform.LookAt(target.transform.position);
         GameObject newMissile = Instantiate(missile, projectiles.transform);
         newMissile.GetComponent<Missile>().SetTargetAndDamage(target, damage);
         newMissile.transform.Translate(transform.position + new Vector3(0f, height, 0f));
@@ -62,7 +60,7 @@ public class Geblase : MonoBehaviour {
 
     private void CheckNextTarget()
     {
-        if (target != null && target.GetComponent<Attacker>().HasDied()) // target has died
+        if (target != null && target.GetComponent<BattleObject>().HasDied()) // target has died
         {
             target = null;
         }
@@ -93,25 +91,11 @@ public class Geblase : MonoBehaviour {
         CheckNextTarget();
     }
 
-    internal void TakeDamage(int damage)
-    {
-        health -= damage;
 
-        if (health <= 0)
-        {
-            health = 0;
-            Instantiate(destroyAnimation, transform.position, Quaternion.identity);
-            Destroy(gameObject, 5);
-        }
-    }
-
-    public bool HasDied()
+    protected override void HandleDeath()
     {
-        return health <= 0;
-    }
-
-    public int GetHealth()
-    {
-        return health;
+        health = 0;
+        Instantiate(destroyAnimation, transform.position, Quaternion.identity);
+        Destroy(gameObject, 5);
     }
 }
