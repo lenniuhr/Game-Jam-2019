@@ -9,6 +9,7 @@ public class SpellBombScript : MonoBehaviour {
     public int damage = 100;
     private bool explode = false;
     private Vector3 Pos;
+    public AudioSource Audio;
 
     public void OnTriggerEnter(Collider collider)
     {
@@ -38,7 +39,7 @@ public class SpellBombScript : MonoBehaviour {
 
     public IEnumerator DeleteEffect()
     {
-
+        Audio.Play();
         yield return new WaitForSeconds(1.5f);
         Collider[] hitColliders = Physics.OverlapSphere(Pos, radius);
         int i = 0;

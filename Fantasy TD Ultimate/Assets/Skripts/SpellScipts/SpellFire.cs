@@ -10,6 +10,7 @@ public class SpellFire : MonoBehaviour {
     private bool Firing = false;
     private Vector3 OldPosition = new Vector3 (0, 0, 0);
     public GameObject[] Effekt;
+    public AudioSource Audio;
 
     public void Fire(Vector3 Target)
     {
@@ -53,6 +54,7 @@ public class SpellFire : MonoBehaviour {
 
     public IEnumerator DeleteEffect(GameObject Effect)
     {
+        Audio.Play();
         Debug.Log("Destroy");
         yield return new WaitForSeconds(2f);
         Destroy(Effect);

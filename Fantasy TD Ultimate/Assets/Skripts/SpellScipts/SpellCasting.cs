@@ -17,6 +17,7 @@ public class SpellCasting : MonoBehaviour {
     private bool trigger = false;
     private bool HoldingBomb = false;
     private Vector3 Aim;
+    public AudioSource[] Audio;
 
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
@@ -77,6 +78,7 @@ public class SpellCasting : MonoBehaviour {
         Debug.Log("MyTrigger");
         if (SelectedSpell)
         {
+            Audio[0].Play(); ;
             SpellReady = false;
             ManaSkript.SpellSelected(SpellIndex);
             Debug.Log("BuildingSelected");
@@ -107,9 +109,11 @@ public class SpellCasting : MonoBehaviour {
     {
         if (SpellIndex == 0)
         {
+            Audio[0].Stop();
             GameObject FireSpell = Instantiate(HoldingSpell);
             FireSpell.GetComponent<Transform>().localPosition = HoldingSpell.GetComponent<Transform>().position;
             FireSpell.GetComponent<SpellFire>().Fire(Aim);
+            Audio[1].Play();
             yield return new WaitForSeconds(.01f); ;
         }
         else if (SpellIndex == 1)
@@ -118,11 +122,13 @@ public class SpellCasting : MonoBehaviour {
 
             while (LocalCounter > 0)
             {
+                Audio[0].Stop();
                 GameObject FireSpell = Instantiate(HoldingSpell);
                 FireSpell.GetComponent<Transform>().localPosition = HoldingSpell.GetComponent<Transform>().position;
                 FireSpell.GetComponent<SpellFire>().Fire(Aim);
                 LocalCounter--;
                 HoldingSpell.SetActive(false);
+                Audio[1].Play();
                 yield return new WaitForSeconds(.1f);
                 HoldingSpell.SetActive(true);
                 yield return new WaitForSeconds(.1f);
@@ -130,6 +136,7 @@ public class SpellCasting : MonoBehaviour {
 
         }else if (SpellIndex == 2)
         {
+            Audio[0].Stop();
             SpellBomb.transform.parent = null;
            HoldingBomb = false;
         }
