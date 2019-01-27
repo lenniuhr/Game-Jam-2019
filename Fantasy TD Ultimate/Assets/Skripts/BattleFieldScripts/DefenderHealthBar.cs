@@ -5,7 +5,7 @@ using UnityEngine;
 public class DefenderHealthBar : MonoBehaviour {
 
     GameObject door;
-    Defender defender;
+    BattleObject defender;
     Transform balken;
     float startSize;
     int startHealth;
@@ -14,7 +14,7 @@ public class DefenderHealthBar : MonoBehaviour {
     void Start()
     {
         door = GameObject.Find("Door");
-        defender = GetComponentInParent<Defender>();
+        defender = GetComponentInParent<BattleObject>();
         balken = transform.Find("Balken");
         startSize = balken.transform.localScale.z;
         startHealth = defender.GetHealth();
