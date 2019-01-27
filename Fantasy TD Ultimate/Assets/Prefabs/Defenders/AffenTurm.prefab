@@ -146,7 +146,7 @@ Transform:
   m_GameObject: {fileID: 1054142364302476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 73.7, y: -16.89, z: 98.9}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4168147581606492}
   - {fileID: 4307654896032838}
@@ -355,8 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554124471413e41bf9e32039a0b7b5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1000
   destroyAnimation: {fileID: 100002, guid: dc2879fbc060f447a881b2037265da75, type: 2}
-  health: 300
   damage: 0
   missile: {fileID: 0}
   shotPerSecond: 0

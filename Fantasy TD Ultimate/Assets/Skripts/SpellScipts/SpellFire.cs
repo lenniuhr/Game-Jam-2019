@@ -56,7 +56,7 @@ public class SpellFire : MonoBehaviour {
         Debug.Log("Destroy");
         yield return new WaitForSeconds(2f);
         Destroy(Effect);
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 
 }

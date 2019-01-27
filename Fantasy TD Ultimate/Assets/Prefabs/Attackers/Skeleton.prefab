@@ -1484,12 +1484,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2df0315c6156418d86567ec4108e996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  attackDamage: 0
-  moveSpeed: 0
-  attackDistance: 0
-  attackOffset: 0
-  attackCooldown: 0
+  health: 250
+  attackDamage: 150
+  moveSpeed: 0.1
+  attackDistance: 3
+  attackOffset: 1.5
+  attackCooldown: 2.7
 --- !u!114 &114788054093622402
 MonoBehaviour:
   m_ObjectHideFlags: 1

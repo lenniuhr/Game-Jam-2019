@@ -43,7 +43,7 @@ public class PlayerSkript : MonoBehaviour {
         }
         if (index == 2)
         {
-            lastSpell = 10;
+            lastSpell = 20;
         }
         Mana = 1;
         ManaBars[0].GetComponent<Renderer>().material = Mats[0];

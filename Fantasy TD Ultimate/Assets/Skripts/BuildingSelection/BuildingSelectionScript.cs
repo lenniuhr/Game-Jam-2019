@@ -8,7 +8,7 @@ public class BuildingSelectionScript : MonoBehaviour {
     public GameObject[] BuildPlacement;
     public GameObject Ray;
     public LevelManager LevelManagerScript;
-    public int BuildCap = 3;
+    public int BuildCap = 1;
     private GameObject SelectedBuilding = null;
     private GameObject HoldingBuilding;
     private GameObject BuildPlacementInstance;
