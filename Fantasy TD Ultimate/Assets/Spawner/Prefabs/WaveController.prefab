@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7791332439798387582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7791332439798387580}
+  - component: {fileID: 7791332439798387583}
+  m_Layer: 0
+  m_Name: WaveController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7791332439798387580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7791332439798387582}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 36.75702, y: 5.8470445, z: 95.440445}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7791332439798387583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7791332439798387582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952b8a04c57477b4ebabb02d6ad8b12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveSoundVolume: 0.33
+  waveLoseSound: {fileID: 8300000, guid: 1c269e209f7ef3a438af7fb50a5ec5a5, type: 3}
+  waveStartSound: {fileID: 8300000, guid: 41b788a5f6f6790419cf0b65f6628bfa, type: 3}
+  waveEndSound: {fileID: 8300000, guid: b5737c402683f8444987495d7b4f5359, type: 3}
+  pauseSoundtrackSound: {fileID: 8300000, guid: e32f6ff49ac1d394ba4d2f1654e2d49c,
+    type: 3}
+  gameSoundtrackSound: {fileID: 8300000, guid: 25ec60d3b887940409c14d626b9e3b9f, type: 3}
+  HealthBonus: 10
+  ManaBonus: 10
+  CashBonus: 10
+  Amount: 10
+  LengthInSeconds: 20
+  PauseInSeconds: 10
+  PauseAddInSeconds: 10
+  InPause: 0
+  JustPaused: 0
+  CurWave: 0

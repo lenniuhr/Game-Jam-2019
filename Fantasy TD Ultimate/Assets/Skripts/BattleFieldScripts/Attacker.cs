@@ -54,7 +54,6 @@ public class Attacker : MonoBehaviour {
         }
         else
         {
-            print(direction.magnitude);
             animator.SetTrigger("AttackTrigger");
             Attack();
         }
@@ -116,9 +115,13 @@ public class Attacker : MonoBehaviour {
         if (maxHealth <= 0)
         {
             maxHealth = 0;
-            animator.SetTrigger("DieTrigger");
             Destroy(GetComponent<CapsuleCollider>());
             Destroy(gameObject, 2);
+
+            if (animator != null)
+            {
+                animator.SetTrigger("DieTrigger");
+            }
         }
     }
 
