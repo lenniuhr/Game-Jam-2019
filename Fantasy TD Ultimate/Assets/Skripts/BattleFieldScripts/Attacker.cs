@@ -11,7 +11,7 @@ public abstract class Attacker : BattleObject {
     public float attackCooldown;
 
     private GameObject door;
-    private List<GameObject> defendersInRange = new List<GameObject>();
+    protected List<GameObject> defendersInRange = new List<GameObject>();
 
     protected float timeSinceLastAttack;
     protected GameObject target;
