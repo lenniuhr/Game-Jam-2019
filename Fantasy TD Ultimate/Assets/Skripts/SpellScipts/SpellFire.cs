@@ -37,16 +37,15 @@ public class SpellFire : MonoBehaviour {
         {
             Debug.Log("EnemyHit");
             collider.gameObject.GetComponent<Attacker>().TakeDamage(damage);
-            Destroy(gameObject);
             GameObject EffectInstance =  Instantiate(Effekt[0]);
             EffectInstance.GetComponent<Transform>().position = this.GetComponent<Transform>().position;
-            //StartCoroutine(DeleteEffect(EffectInstance));
+            StartCoroutine(DeleteEffect(EffectInstance));
 
         }
         if (collider.gameObject.CompareTag("Ground"))
         {
             Debug.Log("GroundHit");
-            GameObject EffectInstance = Instantiate(Effekt[0]);
+            GameObject EffectInstance = Instantiate(Effekt[1]);
             EffectInstance.GetComponent<Transform>().position = this.GetComponent<Transform>().position;
             StartCoroutine(DeleteEffect(EffectInstance));
         }
@@ -54,8 +53,10 @@ public class SpellFire : MonoBehaviour {
 
     public IEnumerator DeleteEffect(GameObject Effect)
     {
+        Debug.Log("Destroy");
         yield return new WaitForSeconds(2f);
         Destroy(Effect);
+        Destroy(gameObject);
     }
 
 }
