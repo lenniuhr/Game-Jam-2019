@@ -10,8 +10,6 @@ public class Bomberwagen : Attacker {
     public GameObject explosion;
     private bool isExploded;
 
-    private List<GameObject> defendersInRange = new List<GameObject>();
-
     protected override void HandleDeath()
     {
         Explode();
@@ -42,8 +40,8 @@ public class Bomberwagen : Attacker {
             isExploded = true;
             Destroy(gameObject, 3.6f);
         }
-
     }
+
     void DealDamage()
     {
         print("DealDamage called" + target);
