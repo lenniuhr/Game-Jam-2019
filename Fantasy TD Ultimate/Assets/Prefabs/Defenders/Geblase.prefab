@@ -83,13 +83,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1455763307577630}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -1.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4525485464004486}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 90}
 --- !u!4 &4525485464004486
 Transform:
   m_ObjectHideFlags: 1
@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1765415184731288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.49, y: -15.560099, z: 34.129936}
+  m_LocalPosition: {x: 13.572912, y: -16.89, z: 45.835335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4125287590519656}
@@ -206,12 +206,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db98fde91b3a4c649b5937a2e6a44a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyAnimation: {fileID: 100002, guid: dc2879fbc060f447a881b2037265da75, type: 2}
   health: 100
+  destroyAnimation: {fileID: 100002, guid: dc2879fbc060f447a881b2037265da75, type: 2}
   damage: 50
   missile: {fileID: 1298828016050568, guid: 82b7b7b834b1a4223919784accd44d26, type: 2}
   shotPerSecond: 1
-  height: 1
+  height: 2
 --- !u!135 &135510926644731652
 SphereCollider:
   m_ObjectHideFlags: 1
