@@ -349,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1000
   attackDamage: 1000
-  moveSpeed: 0.05
+  moveSpeed: 2
   attackDistance: 2
   attackOffset: 0
   attackCooldown: 0

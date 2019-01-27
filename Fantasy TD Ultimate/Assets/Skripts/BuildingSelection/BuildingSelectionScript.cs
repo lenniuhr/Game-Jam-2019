@@ -34,6 +34,10 @@ public class BuildingSelectionScript : MonoBehaviour {
             {
                 BuildIndex = 2;
             }
+            else if (other.gameObject.tag.Contains("4"))
+            {
+                BuildIndex = 3;
+            }
 
             other.GetComponent<BuildGetsCollected>().GotSelected();
             SelectedBuilding = other.gameObject; 
