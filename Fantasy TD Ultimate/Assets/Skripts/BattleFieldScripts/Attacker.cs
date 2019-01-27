@@ -74,20 +74,22 @@ public class Attacker : MonoBehaviour {
 
     private void CheckNextAttacker()
     {
-        if(door == null)
+        if(door == null) // game over
         {
             return;
         }
 
-        if(target == null)
+        if(target == null || target == door || target.GetComponent<Defender>().HasDied())
         {
-            target = door;
-        }
-
-        if (target == door && defendersInRange.Count > 0)
-        {
-            target = defendersInRange[0];
-            defendersInRange.Remove(target);
+            if(defendersInRange.Count > 0)
+            {
+                target = defendersInRange[0];
+                defendersInRange.Remove(target);
+            }
+            else
+            {
+                target = door;
+            }
         }
     }
 

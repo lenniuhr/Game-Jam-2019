@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Defender : MonoBehaviour {
 
+    public GameObject destroyAnimation;
     public int health = 100;
     public int damage = 50;
 
@@ -29,15 +30,22 @@ public class Defender : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        CheckNextTarget();
-
-        if (timeSinceLastAttack > 1f/shotPerSecond && target != null)
+        if(!HasDied())
         {
-            Shoot();
+            CheckNextTarget();
+
+            if (timeSinceLastAttack > 1f / shotPerSecond && target != null)
+            {
+                Shoot();
+            }
+            else
+            {
+                timeSinceLastAttack += Time.deltaTime;
+            }
         }
         else
         {
-            timeSinceLastAttack += Time.deltaTime;
+            transform.Translate(new Vector3(0f, -0.05f, 0f));
         }
     }
 
@@ -89,7 +97,8 @@ public class Defender : MonoBehaviour {
         if (health <= 0)
         {
             health = 0;
-            Destroy(gameObject);
+            Instantiate(destroyAnimation, transform.position, Quaternion.identity);
+            Destroy(gameObject, 5);
         }
     }
 
