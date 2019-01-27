@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Attacker : MonoBehaviour {
 
 
-    public int maxHealth = 100;
+    public int health = 100;
 
     public int attackDamage = 10;
 
@@ -112,11 +112,12 @@ public class Attacker : MonoBehaviour {
 
     public void TakeDamage(int dmg)
     {
-        maxHealth -= dmg;
+        health -= dmg;
 
-        if (maxHealth <= 0)
+        if (health <= 0)
         {
-            maxHealth = 0;
+            health = 0;
+            animator.SetTrigger("DieTrigger");
             Destroy(GetComponent<CapsuleCollider>());
             Destroy(gameObject, 2);
 
@@ -129,6 +130,11 @@ public class Attacker : MonoBehaviour {
 
     public bool HasDied()
     {
-        return maxHealth <= 0;
+        return health <= 0;
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }

@@ -30,6 +30,10 @@ public class Missile : MonoBehaviour {
                 transform.Translate(-directionNorm * missileSpeed);
             }
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SetTargetAndDamage(GameObject target, int damage)

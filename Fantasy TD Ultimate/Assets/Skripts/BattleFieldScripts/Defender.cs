@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Defender : MonoBehaviour {
 
-    public int maxHealth = 100;
+    public int health = 100;
     public int damage = 50;
 
     private List<GameObject> attackersInRange;
@@ -84,17 +84,22 @@ public class Defender : MonoBehaviour {
 
     internal void TakeDamage(int damage)
     {
-        maxHealth -= damage;
+        health -= damage;
 
-        if (maxHealth <= 0)
+        if (health <= 0)
         {
-            maxHealth = 0;
+            health = 0;
             Destroy(gameObject);
         }
     }
 
     public bool HasDied()
     {
-        return maxHealth <= 0;
+        return health <= 0;
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }
