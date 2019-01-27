@@ -3,10 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Defender : MonoBehaviour {
+public class Defender : BattleObject {
 
     public GameObject destroyAnimation;
-    public int health = 100;
     public int damage = 50;
 
     private List<GameObject> attackersInRange;
@@ -59,7 +58,7 @@ public class Defender : MonoBehaviour {
 
     private void CheckNextTarget()
     {
-        if (target != null && target.GetComponent<Attacker>().HasDied()) // target has died
+        if (target != null && target.GetComponent<BattleObject>().HasDied()) // target has died
         {
             target = null;
         }
@@ -90,25 +89,11 @@ public class Defender : MonoBehaviour {
         CheckNextTarget();
     }
 
-    internal void TakeDamage(int damage)
-    {
-        health -= damage;
 
-        if (health <= 0)
-        {
-            health = 0;
-            Instantiate(destroyAnimation, transform.position, Quaternion.identity);
-            Destroy(gameObject, 5);
-        }
-    }
-
-    public bool HasDied()
+    protected override void HandleDeath()
     {
-        return health <= 0;
-    }
-
-    public int GetHealth()
-    {
-        return health;
+        health = 0;
+        Instantiate(destroyAnimation, transform.position, Quaternion.identity);
+        Destroy(gameObject, 5);
     }
 }

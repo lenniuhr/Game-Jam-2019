@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 4070851815648260}
   - component: {fileID: 65159869277741254}
   - component: {fileID: 54031305936962522}
-  - component: {fileID: 114396179639922938}
+  - component: {fileID: 114790172933895264}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Attacker
@@ -1306,7 +1306,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1367408522283718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 17.2763, y: -16.89, z: 85.46265}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4167627426711392}
@@ -2570,23 +2570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a8a54ae62a64f25861ce2c4a929816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114396179639922938
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1367408522283718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc9b718a2ffb442583df16eedea8925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  attackDamage: 5
-  attackCooldown: 0.69
-  attackOffset: 0.4
-  moveSpeed: 0.1
-  attackDistance: 4
 --- !u!114 &114748827692246338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2598,6 +2581,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760d1fe149be14d96a2560059ef3f148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114790172933895264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1367408522283718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2df0315c6156418d86567ec4108e996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  attackDamage: 10
+  moveSpeed: 0.1
+  attackDistance: 2
+  attackOffset: 0.5
+  attackCooldown: 0.7
 --- !u!135 &135106710269425076
 SphereCollider:
   m_ObjectHideFlags: 1
