@@ -32,9 +32,9 @@ public class LevelManager : MonoBehaviour {
         PlayerMode[0].SetActive(false);
         BuildingSelection.enabled = false;
         CreateAttakWave();
-        PlayerMode[1].SetActive(true);
-        SpellCastingScript.enabled = true;
         SpellCastingScript.Initialize();
+        PlayerMode[1].SetActive(true);
+        SpellCastingScript.enabled = true; 
         ActivateEnemies(wavesize/4);
         LokalTimer = WaveTimer;
         StartTimer = true;
@@ -128,11 +128,12 @@ public class LevelManager : MonoBehaviour {
     private void WaveWasCleared()
     {
         BuildPhase = true;
+        SpellCastingScript.Initialize();
         PlayerMode[1].SetActive(false);
         SpellCastingScript.enabled = false;
         PlayerMode[0].SetActive(true);
         BuildingSelection.enabled = true;
-        BuildingSelection.BuildCap = 3;
+        BuildingSelection.BuildCap = 1;
         Level++;
 
         GameObject[] Deleteable;

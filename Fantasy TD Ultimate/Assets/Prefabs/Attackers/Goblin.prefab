@@ -2592,10 +2592,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2df0315c6156418d86567ec4108e996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  attackDamage: 10
-  moveSpeed: 0.1
-  attackDistance: 2
+  health: 150
+  attackDamage: 25
+  moveSpeed: 0.15
+  attackDistance: 3
   attackOffset: 0.5
   attackCooldown: 0.7
 --- !u!135 &135106710269425076

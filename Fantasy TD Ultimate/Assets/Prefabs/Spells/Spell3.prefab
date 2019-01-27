@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114567212015006772}
   m_Layer: 0
   m_Name: Spell3
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -677,7 +677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effects:
   - {fileID: 1957713450754118}
-  damage: 100
+  damage: 300
 --- !u!114 &114726068180959034
 MonoBehaviour:
   m_ObjectHideFlags: 1
