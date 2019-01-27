@@ -66,7 +66,6 @@ public class Attacker : MonoBehaviour {
     {
         if(timeSinceLastAttack > attackCooldown)
         {
-            print("HIT");
             target.GetComponent<Defender>().TakeDamage(attackDamage);
             timeSinceLastAttack = 0f;
         }

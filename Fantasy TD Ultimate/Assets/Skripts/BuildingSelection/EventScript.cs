@@ -29,16 +29,29 @@ public class EventScript : MonoBehaviour {
         if (mDevice.GetHairTriggerDown())
         {
             Debug.Log(gameObject.name + " Trigger Press");
-                BuildingSkript.Trigger();
+            if (SpellCastingScript.enabled == true)
+            {
                 SpellCastingScript.Trigger();
+            }
+            if (BuildingSkript.enabled == true)
+            {
+                BuildingSkript.Trigger();
+            }
         }
 
         // 3
         if (mDevice.GetHairTriggerUp())
         {
             Debug.Log(gameObject.name + " Trigger Release");
-                BuildingSkript.TriggerExit();        
+            if (SpellCastingScript.enabled == true)
+            {
                 StartCoroutine(SpellCastingScript.TriggerExit());
+            }
+            if (BuildingSkript.enabled == true)
+            {
+                BuildingSkript.TriggerExit();
+            }
+
 
 
         }
