@@ -44,12 +44,15 @@ public class LevelManager : MonoBehaviour {
 
     public void CreateAttakWave()
     {
-
+        int Enemietype = 0;
         EnemieWave = new GameObject[wavesize];
 
         for (int i = 0; i < EnemieWave.Length; i++)
         {
+            int RandomValue = 1;
             Debug.Log("Instantiate");
+
+
             EnemieWave[i] =(GameObject) Instantiate(Enemies[0]) ;
             EnemieWave[i].SetActive(false);
         }

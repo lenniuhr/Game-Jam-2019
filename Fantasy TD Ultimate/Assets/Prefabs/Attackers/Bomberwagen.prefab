@@ -163,7 +163,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207615320074244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.07848, y: -16.8, z: 103.5}
+  m_LocalPosition: {x: -3.162694, y: -16.39, z: 137.32217}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4822277547931712}
@@ -349,7 +349,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1000
   attackDamage: 1000
-  moveSpeed: 0.2
+  moveSpeed: 0.02
+  attackDistance: 0
+  attackOffset: 0
+  attackCooldown: 0
   attackRange: 3.5
   attackRadius: 16
   explosion: {fileID: 1488647596523350, guid: d0f4cb21bea4448c8b23fa519cf208bd, type: 2}

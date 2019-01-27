@@ -37,34 +37,6 @@ public abstract class Attacker : BattleObject {
         }
     }
 
-    private void MoveInDirection(Transform targetTransform)
-    {
-        transform.LookAt(targetTransform.position);
-
-        Vector3 direction = transform.position - targetTransform.position;
-        if(direction.magnitude > attackDistance)
-        {
-            transform.Translate(new Vector3(0f, 0f, moveSpeed));
-            animator.SetTrigger("WalkTrigger");
-            timeSinceLastAttack = attackCooldown - attackOffset;
-        }
-        else
-        {
-            animator.SetTrigger("AttackTrigger");
-            Attack();
-            timeSinceLastAttack += Time.deltaTime;
-        }
-    }
-
-    private void Attack()
-    {
-        if(timeSinceLastAttack > attackCooldown)
-        {
-            target.GetComponent<Defender>().TakeDamage(attackDamage);
-            timeSinceLastAttack = 0f;
-        }
-    }
-
     protected abstract void MoveInDirection(Transform targetTransform);
 
     private void CheckNextAttacker()
