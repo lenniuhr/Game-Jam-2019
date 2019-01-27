@@ -37,7 +37,7 @@ public class MeleeAttacker : Attacker {
         if (timeSinceLastAttack > attackCooldown)
         {
             print("HIT");
-            target.GetComponent<Defender>().TakeDamage(attackDamage);
+            target.GetComponent<BattleObject>().TakeDamage(attackDamage);
             timeSinceLastAttack = 0f;
         }
     }
