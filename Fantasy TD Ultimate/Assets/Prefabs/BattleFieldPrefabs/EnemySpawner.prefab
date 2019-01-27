@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1200552388667756, guid: 84cbd1d27cfb74fc0addd02c88c5bc72, type: 2}
+  - {fileID: 1367408522283718, guid: 8006e37a61c9c4fe2934edff2d93ebb7, type: 2}
   amounts: 01000000
   spawnPoints:
   - {x: -160, y: -16.7, z: 160}
