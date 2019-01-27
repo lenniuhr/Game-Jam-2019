@@ -366,7 +366,7 @@ public class EnemySpawnerV2 : MonoBehaviour
         enemy.GetComponent<Transform>().position = spawnPoint.position;
 
         Attacker attacker = enemy.GetComponent<Attacker>();
-        attacker.maxHealth = 100;
+        attacker.health = 100;
 
         LaneListEntryKV lanekv = GetLaneEntry(lane);
         lanekv.enemies.Add(enemy);
