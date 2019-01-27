@@ -29,6 +29,8 @@ public class AttackerHealthBar : MonoBehaviour {
     {
         float scale = (float)attacker.GetHealth() / startHealth;
         balken.transform.localScale = new Vector3(balken.transform.localScale.x, balken.transform.localScale.y, scale * startSize);
+
+
     }
 
     void RotateHealthBar()

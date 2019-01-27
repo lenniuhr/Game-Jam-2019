@@ -11,7 +11,7 @@ public class SpellCasting : MonoBehaviour {
     public PlayerSkript ManaSkript;
     private GameObject SpellInstance;
     private int SpellIndex = 0;
-    private GameObject SelectedSpell;
+    private GameObject SelectedSpell = null;
     private GameObject HoldingSpell;
     private GameObject SpellBomb;
     private bool trigger = false;
@@ -24,6 +24,17 @@ public class SpellCasting : MonoBehaviour {
     private void Awake()
     {
         trackedObj = GetComponentInParent<SteamVR_TrackedObject>();
+    }
+    public void Initialize()
+    {
+        SpellInstance = null;
+        SpellBomb = null;
+        HoldingSpell = null; 
+        SpellIndex = 0;
+        SpellReady = true;
+        SelectedSpell = null;
+        trigger = false;
+        HoldingBomb = false;
     }
 
     // Wenn auf ein Spell gezeigt wird gebe Feedback und speicher das entsprechende Gebäude
@@ -53,8 +64,11 @@ public class SpellCasting : MonoBehaviour {
     {
         if (SelectedSpell)
         {
-            other.GetComponent<SpellGetsCollected>().GotDeSelected();
-            SelectedSpell = null;
+            if (other.gameObject.tag.Contains("Spell"))
+            {
+                other.GetComponent<SpellGetsCollected>().GotDeSelected();
+                SelectedSpell = null;
+            }
         }
     }
 
@@ -91,7 +105,6 @@ public class SpellCasting : MonoBehaviour {
 
     public IEnumerator TriggerExit()
     {
-        Debug.Log(SpellIndex);
         if (SpellIndex == 0)
         {
             GameObject FireSpell = Instantiate(HoldingSpell);

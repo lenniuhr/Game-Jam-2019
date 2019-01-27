@@ -7,6 +7,8 @@ public class BuildingSelectionScript : MonoBehaviour {
     public GameObject[] BuildEffect;
     public GameObject[] BuildPlacement;
     public GameObject Ray;
+    public LevelManager LevelManagerScript;
+    public int BuildCap = 3;
     private GameObject SelectedBuilding = null;
     private GameObject HoldingBuilding;
     private GameObject BuildPlacementInstance;
@@ -28,6 +30,11 @@ public class BuildingSelectionScript : MonoBehaviour {
             {
                 BuildIndex = 1;
             }
+            else if (other.gameObject.tag.Contains("3"))
+            {
+                BuildIndex = 2;
+            }
+
             other.GetComponent<BuildGetsCollected>().GotSelected();
             SelectedBuilding = other.gameObject; 
         }
@@ -37,8 +44,11 @@ public class BuildingSelectionScript : MonoBehaviour {
     {
         if (SelectedBuilding)
         {
-            other.GetComponent<BuildGetsCollected>().GotDeSelected();
-            SelectedBuilding = null;
+            if (other.gameObject.tag.Contains("Build"))
+            {
+                other.GetComponent<BuildGetsCollected>().GotDeSelected();
+                SelectedBuilding = null;
+            }
             
         }
     }
@@ -78,6 +88,12 @@ public class BuildingSelectionScript : MonoBehaviour {
             if (BuildTrigger)
             {
                 Instantiate(BuildPlacementInstance);
+                BuildCap--;
+                if (BuildCap <= 0)
+                {
+                    LevelManagerScript.BuildPhase = false;
+                    LevelManagerScript.StartWave();
+                }
             }
             BuildPlacementInstance.SetActive(false);
             Destroy(HoldingBuilding);
@@ -94,7 +110,6 @@ public class BuildingSelectionScript : MonoBehaviour {
                 BuildPlacementInstance.GetComponent<Transform>().position = hit.point;
                 BuildPlacementInstance.SetActive(true);
                 BuildTrigger = true;
-                Debug.Log("Did Hit");
             }
             else
             {
