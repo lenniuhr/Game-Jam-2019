@@ -2,35 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attacker : MonoBehaviour {
+public abstract class Attacker : BattleObject {
 
-
-    public int health = 100;
-
-    public int attackDamage = 10;
-
-    public float attackCooldown = 2f;
-    public float attackOffset;
-    private float timeSinceLastAttack;
-
+    public int attackDamage;
     public float moveSpeed;
     public float attackDistance;
+    public float attackOffset;
+    public float attackCooldown;
 
     private GameObject door;
-    private Animator animator;
+    private List<GameObject> defendersInRange = new List<GameObject>();
 
-    List<GameObject> defendersInRange = new List<GameObject>();
-    private GameObject target;
+    protected float timeSinceLastAttack;
+    protected GameObject target;
 
     // Use this for initialization
-    void Start () {
+    protected void Start () {
         door = GameObject.Find("Door");
         target = door;
-        animator = GetComponentInChildren<Animator>();
-	}
+        print(target);
+    }
 	
 	// Update is called once per frame
-	void Update ()
+    protected void Update ()
     {
         CheckNextAttacker();
 
@@ -43,34 +37,7 @@ public class Attacker : MonoBehaviour {
         }
     }
 
-    private void MoveInDirection(Transform targetTransform)
-    {
-        transform.LookAt(targetTransform.position);
-
-        Vector3 direction = transform.position - targetTransform.position;
-        if(direction.magnitude > attackDistance)
-        {
-            transform.Translate(new Vector3(0f, 0f, moveSpeed));
-            animator.SetTrigger("WalkTrigger");
-            timeSinceLastAttack = attackCooldown - attackOffset;
-        }
-        else
-        {
-            animator.SetTrigger("AttackTrigger");
-            Attack();
-            timeSinceLastAttack += Time.deltaTime;
-        }
-    }
-
-    private void Attack()
-    {
-        if(timeSinceLastAttack > attackCooldown)
-        {
-            print("HIT");
-            target.GetComponent<Defender>().TakeDamage(attackDamage);
-            timeSinceLastAttack = 0f;
-        }
-    }
+    protected abstract void MoveInDirection(Transform targetTransform);
 
     private void CheckNextAttacker()
     {
@@ -79,7 +46,7 @@ public class Attacker : MonoBehaviour {
             return;
         }
 
-        if(target == null || target == door || target.GetComponent<Defender>().HasDied())
+        if(target == null || target == door || target.GetComponent<BattleObject>().HasDied())
         {
             if(defendersInRange.Count > 0)
             {
@@ -110,33 +77,5 @@ public class Attacker : MonoBehaviour {
             defendersInRange.Remove(o);
         }
         CheckNextAttacker();
-    }
-
-    public void TakeDamage(int dmg)
-    {
-        health -= dmg;
-
-        if (health <= 0)
-        {
-            health = 0;
-            animator.SetTrigger("DieTrigger");
-            Destroy(GetComponent<CapsuleCollider>());
-            Destroy(gameObject, 2);
-
-            if (animator != null)
-            {
-                animator.SetTrigger("DieTrigger");
-            }
-        }
-    }
-
-    public bool HasDied()
-    {
-        return health <= 0;
-    }
-
-    public int GetHealth()
-    {
-        return health;
     }
 }

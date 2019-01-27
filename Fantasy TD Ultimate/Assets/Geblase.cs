@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Defender : BattleObject {
+public class Geblase : MonoBehaviour {
+
+
 
     public GameObject destroyAnimation;
+    public int health = 100;
     public int damage = 50;
 
     private List<GameObject> attackersInRange;
@@ -18,18 +20,20 @@ public class Defender : BattleObject {
     public float height;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         attackersInRange = new List<GameObject>();
         projectiles = GameObject.Find("Projectiles");
-        if(!projectiles)
+        if (!projectiles)
         {
             projectiles = Instantiate(new GameObject("Projectiles"));
         }
-	}
+    }
 
     // Update is called once per frame
-    void Update () {
-        if(!HasDied())
+    void Update()
+    {
+        if (!HasDied())
         {
             CheckNextTarget();
 
@@ -52,13 +56,13 @@ public class Defender : BattleObject {
     {
         GameObject newMissile = Instantiate(missile, projectiles.transform);
         newMissile.GetComponent<Missile>().SetTargetAndDamage(target, damage);
-        newMissile.transform.Translate(transform.position + new Vector3(0f,height,0f));
+        newMissile.transform.Translate(transform.position + new Vector3(0f, height, 0f));
         timeSinceLastAttack = 0f;
     }
 
     private void CheckNextTarget()
     {
-        if (target != null && target.GetComponent<BattleObject>().HasDied()) // target has died
+        if (target != null && target.GetComponent<Attacker>().HasDied()) // target has died
         {
             target = null;
         }
@@ -89,11 +93,25 @@ public class Defender : BattleObject {
         CheckNextTarget();
     }
 
-
-    protected override void HandleDeath()
+    internal void TakeDamage(int damage)
     {
-        health = 0;
-        Instantiate(destroyAnimation, transform.position, Quaternion.identity);
-        Destroy(gameObject, 5);
+        health -= damage;
+
+        if (health <= 0)
+        {
+            health = 0;
+            Instantiate(destroyAnimation, transform.position, Quaternion.identity);
+            Destroy(gameObject, 5);
+        }
+    }
+
+    public bool HasDied()
+    {
+        return health <= 0;
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }
