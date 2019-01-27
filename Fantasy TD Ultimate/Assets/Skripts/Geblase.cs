@@ -53,7 +53,7 @@ public class Geblase : BattleObject {
     {
         transform.LookAt(target.transform.position);
         GameObject newMissile = Instantiate(missile, projectiles.transform);
-        newMissile.GetComponent<Missile>().SetTargetAndDamage(target, damage);
+        newMissile.GetComponent<Tornado>().SetTargetAndDamage(target.transform.position - transform.position, damage);
         newMissile.transform.Translate(transform.position + new Vector3(0f, height, 0f));
         timeSinceLastAttack = 0f;
     }
