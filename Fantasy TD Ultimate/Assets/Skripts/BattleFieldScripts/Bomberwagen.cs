@@ -24,7 +24,7 @@ public class Bomberwagen : Attacker {
         Vector3 direction = transform.position - targetTransform.position;
         if (direction.magnitude > attackRange)
         {
-            transform.Translate(new Vector3(0f, 0f, moveSpeed));
+            transform.Translate(new Vector3(0f, 0f, moveSpeed) * Time.deltaTime);
         }
         else
         {

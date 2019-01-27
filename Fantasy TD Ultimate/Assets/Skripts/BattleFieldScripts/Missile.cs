@@ -23,11 +23,11 @@ public class Missile : MonoBehaviour {
             Vector3 directionNorm = direction.normalized;
             if(direction.magnitude < 0)
             {
-                transform.Translate(directionNorm * missileSpeed);
+                transform.Translate(directionNorm * missileSpeed * Time.deltaTime);
             }
             else
             {
-                transform.Translate(-directionNorm * missileSpeed);
+                transform.Translate(-directionNorm * missileSpeed * Time.deltaTime);
             }
         }
         else

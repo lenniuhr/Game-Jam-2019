@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114583664100255764}
   - component: {fileID: 114394593485122362}
   m_Layer: 0
-  m_Name: "L\xFCfter"
+  m_Name: "Lu\u0308fter"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
