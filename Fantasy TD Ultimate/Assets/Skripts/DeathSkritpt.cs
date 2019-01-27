@@ -10,6 +10,7 @@ public class DeathSkritpt : MonoBehaviour {
     {
         if (skript.health <= 0)
         {
+            Debug.Log("Game Over");
             SceneManager.LoadScene("EndScene", LoadSceneMode.Additive);
         }
     }

@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  damage: 175
+  damage: 200
   Effekt:
   - {fileID: 1872398490568822, guid: 7619715228417dc42a5102fe47d62337, type: 2}
   - {fileID: 1979348020082302, guid: 0057a7af2c3da0645b6c6a277bbdf4b9, type: 2}

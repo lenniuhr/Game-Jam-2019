@@ -83,7 +83,7 @@ public class LevelManager : MonoBehaviour {
             {
                 if (RandomValue <= 40)
                     Enemietype = 0;
-                else if (RandomValue <= 80)
+                else if (RandomValue <= 85)
                     Enemietype = 1;
                 else if (RandomValue <= 100)
                     Enemietype = 2;
@@ -94,10 +94,59 @@ public class LevelManager : MonoBehaviour {
                     Enemietype = 0;
                 else if (RandomValue <= 80)
                     Enemietype = 1;
-                else if (RandomValue <= 90)
+                else if (RandomValue <= 100)
+                    Enemietype = 2;
+            }
+            else if (Level == 6)
+            {
+                if (RandomValue <= 40)
+                    Enemietype = 0;
+                else if (RandomValue <= 77)
+                    Enemietype = 1;
+                else if (RandomValue <= 97)
                     Enemietype = 2;
                 else if (RandomValue <= 100)
                     Enemietype = 3;
+            }
+            else if (Level == 7)
+            {
+                if (RandomValue <= 35)
+                    Enemietype = 0;
+                else if (RandomValue <= 75)
+                    Enemietype = 1;
+                else if (RandomValue <= 97)
+                    Enemietype = 2;
+                else if (RandomValue <= 100)
+                    Enemietype = 3;
+            }
+            else if (Level == 8)
+            {
+                if (RandomValue <= 35)
+                    Enemietype = 0;
+                else if (RandomValue <= 75)
+                    Enemietype = 1;
+                else if (RandomValue <= 95)
+                    Enemietype = 2;
+                else if (RandomValue <= 100)
+                    Enemietype = 3;
+            }
+            else if (Level == 9)
+            {
+                if (RandomValue <= 35)
+                    Enemietype = 0;
+                else if (RandomValue <= 75)
+                    Enemietype = 1;
+                else if (RandomValue <= 95)
+                    Enemietype = 2;
+                else if (RandomValue <= 100)
+                    Enemietype = 3;
+            }
+            else if (Level == 10)
+            {
+                if (i < EnemieWave.Length-1)
+                    Enemietype = 0;
+                else
+                    Enemietype = 4;
             }
             else
             {

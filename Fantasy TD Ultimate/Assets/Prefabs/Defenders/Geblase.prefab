@@ -484,7 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   destroyAnimation: {fileID: 100002, guid: dc2879fbc060f447a881b2037265da75, type: 2}
-  damage: 50
+  damage: 25
   missile: {fileID: 1052267620224766, guid: 89b14f10941c54d8691e0e0e478c1f9b, type: 2}
   shotPerSecond: 0.5
   height: 2
