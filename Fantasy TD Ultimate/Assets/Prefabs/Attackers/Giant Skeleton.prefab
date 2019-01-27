@@ -1486,7 +1486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1000
   attackDamage: 300
-  moveSpeed: 0.05
+  moveSpeed: 2
   attackDistance: 4
   attackOffset: 1.5
   attackCooldown: 2.7
