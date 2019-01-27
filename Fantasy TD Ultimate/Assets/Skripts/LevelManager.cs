@@ -49,11 +49,66 @@ public class LevelManager : MonoBehaviour {
 
         for (int i = 0; i < EnemieWave.Length; i++)
         {
-            int RandomValue = 1;
+            int RandomValue = Random.Range(0, 100);
             Debug.Log("Instantiate");
+            if (Level == 0)
+            {
+                Enemietype = 0;
+            }else if (Level == 1)
+            {
+                if (RandomValue <= 80)
+                    Enemietype = 0;
+                else
+                    Enemietype = 1;
+            }else if (Level == 2)
+                {
+            if (RandomValue <= 60)
+                Enemietype = 0;
+            else
+                Enemietype = 1;
+            }
+            else if (Level == 3)
+            {
+                if (RandomValue <= 50)
+                    Enemietype = 0;
+                else if (RandomValue <= 90)
+                    Enemietype = 1;
+                else if (RandomValue <= 100)
+                    Enemietype = 2;
+            }
+            else if (Level == 4)
+            {
+                if (RandomValue <= 40)
+                    Enemietype = 0;
+                else if (RandomValue <= 80)
+                    Enemietype = 1;
+                else if (RandomValue <= 100)
+                    Enemietype = 2;
+            }
+            else if (Level == 5)
+            {
+                if (RandomValue <= 40)
+                    Enemietype = 0;
+                else if (RandomValue <= 80)
+                    Enemietype = 1;
+                else if (RandomValue <= 90)
+                    Enemietype = 2;
+                else if (RandomValue <= 100)
+                    Enemietype = 3;
+            }
+            else
+            {
+                if (RandomValue <= 30)
+                    Enemietype = 0;
+                else if (RandomValue <= 80)
+                    Enemietype = 1;
+                else if (RandomValue <= 90)
+                    Enemietype = 2;
+                else if (RandomValue <= 100)
+                    Enemietype = 3;
+            }
 
-
-            EnemieWave[i] =(GameObject) Instantiate(Enemies[0]) ;
+            EnemieWave[i] =(GameObject) Instantiate(Enemies[Enemietype]) ;
             EnemieWave[i].SetActive(false);
         }
     }
@@ -79,6 +134,14 @@ public class LevelManager : MonoBehaviour {
         BuildingSelection.enabled = true;
         BuildingSelection.BuildCap = 3;
         Level++;
+
+        GameObject[] Deleteable;
+        Deleteable = GameObject.FindGameObjectsWithTag("Finish");
+        for(int i = 0; i< Deleteable.Length; i++)
+        {
+            Destroy(Deleteable[i]);
+        }
+
     }
 
     // Update is called once per frame
