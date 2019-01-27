@@ -677,7 +677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effects:
   - {fileID: 1957713450754118}
-  damage: 300
+  damage: 400
 --- !u!114 &114726068180959034
 MonoBehaviour:
   m_ObjectHideFlags: 1

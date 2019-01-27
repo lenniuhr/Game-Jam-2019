@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour {
     public BuildingSelectionScript BuildingSelection;
     public SpellCasting SpellCastingScript;
 
+    public AudioSource Audio;
+
     public float WaveTimer = 100f;
     public float LokalTimer;
     private bool StartTimer = false;
@@ -36,6 +38,7 @@ public class LevelManager : MonoBehaviour {
         PlayerMode[1].SetActive(true);
         SpellCastingScript.enabled = true; 
         ActivateEnemies(wavesize/4);
+        Audio.Play();
         LokalTimer = WaveTimer;
         StartTimer = true;
 
